@@ -1,0 +1,96 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Layout</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+        color:white;
+    }
+
+    .container{
+        display:grid;
+        width:100%;
+        min-height:100vh;
+        gap:5px;
+        padding:10px;
+    }
+
+    /* COLORS */
+    .header{ background:#071833; }
+    .menu{ background:#e63946; }
+    .hero{ background:#4a90e2; }
+    .main{ background:#0d223a; }
+    .banner{ background:#f4c542; color:#000; }
+    .extra{ background:#46c39f; }
+    .image{ background:#c9f0f5; color:#000; }
+
+    /* MOBILE (default) */
+    .container{
+        grid-template-columns:1fr;
+        grid-template-areas:
+        "header"
+        "menu"
+        "hero"
+        "main"
+        "banner"
+        "extra"
+        "image";
+    }
+
+    .header{ grid-area:header; padding:20px; text-align:center; }
+    .menu{ grid-area:menu; padding:20px; text-align:center; }
+    .hero{ grid-area:hero; padding:40px; text-align:center; }
+    .main{ grid-area:main; padding:40px; text-align:center; }
+    .banner{ grid-area:banner; padding:20px; text-align:center; }
+    .extra{ grid-area:extra; padding:20px; text-align:center; }
+    .image{ grid-area:image; padding:20px; text-align:center; }
+
+    /* TABLET LAYOUT */
+    @media(min-width:600px){
+        .container{
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-areas:
+            "header header header"
+            "hero hero hero"
+            "menu main main"
+            "menu banner image"
+            "menu extra image";
+        }
+    }
+
+    /* DESKTOP LAYOUT */
+    @media(min-width:992px){
+        .container{
+            grid-template-columns: 1.2fr 4fr 1fr 1fr;
+            grid-template-areas:
+            "header menu menu menu"
+            "hero hero hero hero"
+            "main main image extra"
+            "banner banner banner banner";
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">HEADER</div>
+    <div class="menu">MENU</div>
+    <div class="hero">HERO</div>
+    <div class="main">MAIN</div>
+    <div class="banner">BANNER</div>
+    <div class="extra">EXTRA</div>
+    <div class="image">IMAGE</div>
+
+</div>
+
+</body>
+</html>
